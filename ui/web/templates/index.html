@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ bot_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/python.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>{{ bot_name }}</h1>
+            <div class="header-buttons">
+                <button id="clear-chat" class="btn btn-secondary">Clear Chat</button>
+                <button id="theme-toggle" class="btn btn-secondary">Toggle Theme</button>
+            </div>
+        </header>
+        
+        <main>
+            <div class="chat-container">
+                <div id="chat-messages">
+                    <div class="message system">
+                        <div class="message-content">
+                            <p>Welcome to {{ bot_name }}! Ask me any Python-related questions or share code for execution.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-container">
+                    <textarea id="user-input" placeholder="Type your message here..." rows="3"></textarea>
+                    <button id="send-button" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+            
+            <div class="code-container">
+                <div class="code-header">
+                    <h3>Code Execution</h3>
+                    <div class="code-buttons">
+                        <button id="run-code" class="btn btn-success">Run Code</button>
+                        <button id="clear-code" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+                <div class="code-editor-container">
+                    <textarea id="code-editor" placeholder="# Python code here..."></textarea>
+                </div>
+                <div class="output-container">
+                    <div class="output-header">
+                        <h4>Output</h4>
+                        <button id="clear-output" class="btn btn-secondary btn-sm">Clear Output</button>
+                    </div>
+                    <div id="code-output" class="output-content"></div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Advanced Python Code Assistant Bot &copy; 2025</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
